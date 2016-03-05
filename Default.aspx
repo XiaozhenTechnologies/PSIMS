@@ -15,6 +15,11 @@
             <td>
             </td>
         </tr>
+        <tr>
+            <td>
+                <input type="button" value="Test" onclick="javascript: location.href = '/Pages/Test.aspx'"/>
+            </td>
+        </tr>
     </table>
 </body>
 </html>
