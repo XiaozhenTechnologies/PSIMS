@@ -19,6 +19,7 @@ public class SqlHelper
         if(conn == null)
         {
             conn = new MySqlConnection(connectionString);
+            conn.Open();
         }
         else if(conn.State == System.Data.ConnectionState.Closed)
         {

@@ -30,4 +30,9 @@ public partial class _Default : System.Web.UI.Page
         reader.Close();
         conn.Close();
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Lable1.Text = "ahhhaa";
+    }
 }
