@@ -1138,5 +1138,645 @@ SELECT 'TableJoins.CreatedBy' AS `TableFieldID`, 'TableJoins' AS `Table`, 'Creat
 ;
 
 
+CREATE TABLE IF NOT EXISTS `Roles` (
+  `RoleID` int(11) NOT NULL AUTO_INCREMENT,
+  `Role` varchar(50) NOT NULL,
+  `UserTypeID` int(11) NOT NULL DEFAULT '0',
+  `TimeUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `TimeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedBy` varchar(12) DEFAULT NULL,
+  `CreatedBy` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`RoleID`),
+  UNIQUE KEY `IX_1` (`Role`)
+)
+;
+
+
+INSERT IGNORE INTO `Tables`
+(`Table`
+,`Key`
+,MaxRecords
+,`Alias`
+,UpdatedBy
+,CreatedBy)
+SELECT 
+'Roles' AS `Table` 
+ , 'RoleID' AS `Key` 
+ ,25 AS MaxRecords 
+ , 'Roles' AS `Alias` 
+ , 'Import' AS UpdatedBy 
+ , 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.RoleID' AS `TableFieldID`, 'Roles' AS `Table`, 'RoleID' AS `Field` 
+, 'RoleID' AS `Alias` 
+, 1 AS `Sequence`, Null AS `Sort`, 'AutoNumber' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 1 AS `Required`, 0 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.Role' AS `TableFieldID`, 'Roles' AS `Table`, 'Role' AS `Field` 
+, 'Role' AS `Alias` 
+, 2 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.UserTypeID' AS `TableFieldID`, 'Roles' AS `Table`, 'UserTypeID' AS `Field` 
+, 'UserTypeID' AS `Alias` 
+, 3 AS `Sequence`, Null AS `Sort`, 'Integer' AS `DataType`, 12 AS `Length`, '0' AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, '1,Employee;2,Supplier;3,Customer;' AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 1 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.TimeUpdated' AS `TableFieldID`, 'Roles' AS `Table`, 'TimeUpdated' AS `Field` 
+, 'TimeUpdated' AS `Alias` 
+, 100 AS `Sequence`, Null AS `Sort`, 'DateTime' AS `DataType`, 24 AS `Length`, 'NOW()' AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.TimeCreated' AS `TableFieldID`, 'Roles' AS `Table`, 'TimeCreated' AS `Field` 
+, 'TimeCreated' AS `Alias` 
+, 102 AS `Sequence`, Null AS `Sort`, 'DateTime' AS `DataType`, 24 AS `Length`, 'NOW()' AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.UpdatedBy' AS `TableFieldID`, 'Roles' AS `Table`, 'UpdatedBy' AS `Field` 
+, 'UpdatedBy' AS `Alias` 
+, 101 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Roles.CreatedBy' AS `TableFieldID`, 'Roles' AS `Table`, 'CreatedBy' AS `Field` 
+, 'CreatedBy' AS `Alias` 
+, 103 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+CREATE TABLE `Users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(12) NOT NULL,
+  `RoleID` int(11) NOT NULL DEFAULT '1',
+  `UserTypeID` int(11) NOT NULL DEFAULT '0',
+  `Language` varchar(2) DEFAULT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Password` varchar(12) NOT NULL DEFAULT 'xyz123',
+  `LogonFailureCount` int(11) NOT NULL DEFAULT '0',
+  `Email` varchar(50) DEFAULT NULL,
+  `Phone` varchar(50) DEFAULT NULL,
+  `Mobile` varchar(50) DEFAULT NULL,
+  `Department` varchar(50) DEFAULT NULL,
+  `JobTitle` varchar(50) DEFAULT NULL,
+  `StartDate` date DEFAULT NULL,
+  `TimeUpdated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedBy` varchar(12) DEFAULT NULL,
+  `TimeCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CreatedBy` varchar(12) DEFAULT NULL,
+  PRIMARY KEY (`UserID`),
+  UNIQUE KEY `IX_Users` (`UserName`),
+  KEY `FK_Users_Roles` (`RoleID`),
+  CONSTRAINT `FK_Users_Roles` FOREIGN KEY (`RoleID`) REFERENCES `Roles` (`RoleID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+;
+
+
+
+INSERT IGNORE INTO `Tables`
+(`Table`
+,`Key`
+,MaxRecords
+,`Alias`
+,UpdatedBy
+,CreatedBy)
+SELECT 
+'Users' AS `Table` 
+ , 'UserID' AS `Key` 
+ ,25 AS MaxRecords 
+ , 'User' AS `Alias` 
+ , 'Import' AS UpdatedBy 
+ , 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.UserID' AS `TableFieldID`, 'Users' AS `Table`, 'UserID' AS `Field` 
+, 'UserID' AS `Alias` 
+, 1 AS `Sequence`, Null AS `Sort`, 'AutoNumber' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 1 AS `Required`, 0 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.UserName' AS `TableFieldID`, 'Users' AS `Table`, 'UserName' AS `Field` 
+, 'UserName' AS `Alias` 
+, 2 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.RoleID' AS `TableFieldID`, 'Users' AS `Table`, 'RoleID' AS `Field` 
+, 'RoleID' AS `Alias` 
+, 3 AS `Sequence`, Null AS `Sort`, 'Integer' AS `DataType`, 12 AS `Length`, '1' AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , 'RoleID' AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.UserTypeID' AS `TableFieldID`, 'Users' AS `Table`, 'UserTypeID' AS `Field` 
+, 'UserTypeID' AS `Alias` 
+, 4 AS `Sequence`, Null AS `Sort`, 'Integer' AS `DataType`, 12 AS `Length`, '0' AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, '1,Employee;2,Supplier;3,Customer' AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 1 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Language' AS `TableFieldID`, 'Users' AS `Table`, 'Language' AS `Field` 
+, 'Language' AS `Alias` 
+, 5 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 2 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Name' AS `TableFieldID`, 'Users' AS `Table`, 'Name' AS `Field` 
+, 'Full Name' AS `Alias` 
+, 6 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Password' AS `TableFieldID`, 'Users' AS `Table`, 'Password' AS `Field` 
+, 'Password' AS `Alias` 
+, 7 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, 'xyz123' AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.LogonFailureCount' AS `TableFieldID`, 'Users' AS `Table`, 'LogonFailureCount' AS `Field` 
+, 'LogonFailureCount' AS `Alias` 
+, 8 AS `Sequence`, Null AS `Sort`, 'Integer' AS `DataType`, 12 AS `Length`, '0' AS DefaultValue, 1 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Email' AS `TableFieldID`, 'Users' AS `Table`, 'Email' AS `Field` 
+, 'Email' AS `Alias` 
+, 9 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Phone' AS `TableFieldID`, 'Users' AS `Table`, 'Phone' AS `Field` 
+, 'Phone' AS `Alias` 
+, 10 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Mobile' AS `TableFieldID`, 'Users' AS `Table`, 'Mobile' AS `Field` 
+, 'Mobile' AS `Alias` 
+, 11 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.Department' AS `TableFieldID`, 'Users' AS `Table`, 'Department' AS `Field` 
+, 'Department' AS `Alias` 
+, 12 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.JobTitle' AS `TableFieldID`, 'Users' AS `Table`, 'JobTitle' AS `Field` 
+, 'JobTitle' AS `Alias` 
+, 13 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 50 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.StartDate' AS `TableFieldID`, 'Users' AS `Table`, 'StartDate' AS `Field` 
+, 'StartDate' AS `Alias` 
+, 14 AS `Sequence`, Null AS `Sort`, 'Date' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 1 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.TimeUpdated' AS `TableFieldID`, 'Users' AS `Table`, 'TimeUpdated' AS `Field` 
+, 'TimeUpdated' AS `Alias` 
+, 100 AS `Sequence`, Null AS `Sort`, 'DateTime' AS `DataType`, 24 AS `Length`, 'NOW()' AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.UpdatedBy' AS `TableFieldID`, 'Users' AS `Table`, 'UpdatedBy' AS `Field` 
+, 'UpdatedBy' AS `Alias` 
+, 101 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.TimeCreated' AS `TableFieldID`, 'Users' AS `Table`, 'TimeCreated' AS `Field` 
+, 'TimeCreated' AS `Alias` 
+, 102 AS `Sequence`, Null AS `Sort`, 'DateTime' AS `DataType`, 24 AS `Length`, 'NOW()' AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+INSERT IGNORE INTO `TableFields`
+(
+  TableFieldID, `Table`, Field, `Alias`
+, Sequence, Sort
+, DataType, `Length`, DefaultValue
+, `Required`, Duplicates
+, DisplayInSubs, DisplayInParent
+, `Values`
+, TableJoinID, RefFieldDisplay
+, SelectMethod
+, UpdatedBy, CreatedBy
+)
+SELECT 'Users.CreatedBy' AS `TableFieldID`, 'Users' AS `Table`, 'CreatedBy' AS `Field` 
+, 'CreatedBy' AS `Alias` 
+, 103 AS `Sequence`, Null AS `Sort`, 'Text' AS `DataType`, 12 AS `Length`, Null AS DefaultValue, 0 AS `Required`, 1 AS Duplicates, 0 AS DisplayInSubs , 1 AS DisplayInParent, Null AS `Values` 
+ , Null AS TableJoinID
+ , Null AS RefFieldDisplay
+ , 0 AS `SelectMethod`  
+ , 'Import' AS UpdatedBy, 'Import' AS CreatedBy 
+;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
